@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Vampire Survivors Clone</title>
+    <title>Neon Survivors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -11,6 +12,7 @@
             background: #000;
             overflow: hidden;
             touch-action: none;
+            font-family: 'Orbitron', sans-serif;
         }
         canvas {
             display: block;
@@ -18,40 +20,91 @@
             height: 100vh;
             touch-action: none;
         }
-        #score {
+        .hud {
             position: fixed;
-            top: 10px;
-            left: 10px;
-            color: white;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            pointer-events: none;
             z-index: 1;
+        }
+        .stats {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #0ff;
+            border-radius: 10px;
+            padding: 10px 20px;
+            color: #fff;
+            text-shadow: 0 0 10px #0ff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+        #score {
+            font-size: 24px;
+            margin: 0;
+        }
+        #level {
+            font-size: 18px;
+            margin: 5px 0 0 0;
+            color: #0ff;
+        }
+        .power-ups {
+            display: flex;
+            gap: 10px;
+        }
+        .power-up {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #f0f;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            text-shadow: 0 0 10px #f0f;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
         }
         #joystick {
             position: fixed;
             bottom: 50px;
             left: 50px;
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.2);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, rgba(0, 255, 255, 0.1) 70%, transparent 100%);
+            border: 2px solid rgba(0, 255, 255, 0.5);
             border-radius: 50%;
             z-index: 1;
             touch-action: none;
         }
         #stick {
             position: absolute;
-            top: 25px;
-            left: 25px;
+            top: 35px;
+            left: 35px;
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.5);
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, rgba(0, 255, 255, 0.4) 100%);
             border-radius: 50%;
             touch-action: none;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
-    <div id="score">Score: 0</div>
+    <div class="hud">
+        <div class="stats">
+            <p id="score">Score: 0</p>
+            <p id="level">Level 1</p>
+        </div>
+        <div class="power-ups">
+            <div class="power-up">⚡</div>
+            <div class="power-up">💫</div>
+            <div class="power-up">🔥</div>
+        </div>
+    </div>
     <div id="joystick">
         <div id="stick"></div>
     </div>
