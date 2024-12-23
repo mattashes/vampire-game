@@ -1,8 +1,8 @@
-import Player from './player.js';
-import EnemyManager from './enemy.js';
-import ParticleSystem from './particles.js';
-import Controls from './controls.js';
-import Renderer from './renderer.js';
+import Player from './js/player.js';
+import EnemyManager from './js/enemy.js';
+import ParticleSystem from './js/particles.js';
+import Controls from './js/controls.js';
+import Renderer from './js/renderer.js';
 
 class Game {
     constructor() {
